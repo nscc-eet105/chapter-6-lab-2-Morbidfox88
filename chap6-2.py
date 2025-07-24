@@ -3,16 +3,24 @@
 #6/30/2025
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 m = float(input("Enter the slope (m): "))
 b = float(input("Enter the y-intercept (b): "))
 
 x_min = -20
 x_max = 20
-x_values = np.linspace(x_min, x_max, 100)
+num_points = 100
+x_values = []
+y_values = []
 
-y_values = m * x_values + b
+
+step_size = (x_max - x_min) / (num_points - 1) 
+
+
+for i in range(num_points):
+    x = x_min + i * step_size
+    x_values.append(x)
+    y_values.append(m * x + b) 
 
 plt.plot(x_values, y_values)
 plt.xlabel("X-axis")
